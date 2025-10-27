@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Swift Project",
+			"type": "shell",
+			"command": "swiftc",
+			"args": [
+				"Sources/main.swift",
+				"-o",
+				"caps-switch"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run Swift Project",
+			"type": "shell",
+			"command": "./caps-switch",
+			"dependsOn": "Build Swift Project",
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			}
+		}
+	]
+}
