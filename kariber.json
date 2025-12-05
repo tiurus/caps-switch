@@ -1,0 +1,51 @@
+{
+  "description": "CapsLock → Smart EN ⇄ RU switch on KeyDown",
+  "manipulators": [
+    {
+      "conditions": [
+        {
+          "input_sources": [
+            {
+              "input_source_id": "com.apple.keylayout.ABC"
+            }
+          ],
+          "type": "input_source_if"
+        }
+      ],
+      "from": {
+        "key_code": "caps_lock"
+      },
+      "to": [
+        {
+          "select_input_source": {
+            "input_source_id": "com.apple.keylayout.Russian"
+          }
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "input_sources": [
+            {
+              "input_source_id": "com.apple.keylayout.Russian"
+            }
+          ],
+          "type": "input_source_if"
+        }
+      ],
+      "from": {
+        "key_code": "caps_lock"
+      },
+      "to": [
+        {
+          "select_input_source": {
+            "input_source_id": "com.apple.keylayout.ABC"
+          }
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}

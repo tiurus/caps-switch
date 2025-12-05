@@ -99,45 +99,53 @@ Add this block **inside `rules`**:
 
 ```json
 {
-  "description": "CapsLock → Smart EN ⇄ RU switch on KeyDown (no delay, no caps mode)",
+  "description": "CapsLock → Smart EN ⇄ RU switch on KeyDown",
   "manipulators": [
     {
-      "type": "basic",
-      "from": { "key_code": "caps_lock" },
       "conditions": [
         {
-          "type": "input_source_if",
           "input_sources": [
-            { "input_source_id": "com.apple.keylayout.ABC" }
-          ]
+            {
+              "input_source_id": "com.apple.keylayout.ABC"
+            }
+          ],
+          "type": "input_source_if"
         }
       ],
+      "from": {
+        "key_code": "caps_lock"
+      },
       "to": [
         {
           "select_input_source": {
             "input_source_id": "com.apple.keylayout.Russian"
           }
         }
-      ]
+      ],
+      "type": "basic"
     },
     {
-      "type": "basic",
-      "from": { "key_code": "caps_lock" },
       "conditions": [
         {
-          "type": "input_source_if",
           "input_sources": [
-            { "input_source_id": "com.apple.keylayout.Russian" }
-          }
+            {
+              "input_source_id": "com.apple.keylayout.Russian"
+            }
+          ],
+          "type": "input_source_if"
         }
       ],
+      "from": {
+        "key_code": "caps_lock"
+      },
       "to": [
         {
           "select_input_source": {
             "input_source_id": "com.apple.keylayout.ABC"
           }
         }
-      ]
+      ],
+      "type": "basic"
     }
   ]
 }
